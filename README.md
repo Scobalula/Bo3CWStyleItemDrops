@@ -50,13 +50,13 @@ function register_item_drop(
     chance,
     on_item_picked_up_func,
     pickup_type,
-    pickup_hint                = undefined,
-    on_spawn_item_model_func   = &on_spawn_item_model_default,
-    on_item_dropped_func       = &on_item_dropped_default,
-    on_item_cleaned_up_func    = &on_item_cleaned_up_default,
-    on_drop_sound              = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
-    on_land_sound			   = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
-    on_pick_up_sound		   = ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND)
+    pickup_hint                 = undefined,
+    on_spawn_item_model_func    = &on_spawn_item_model_default,
+    on_item_dropped_func        = &on_item_dropped_default,
+    on_item_cleaned_up_func     = &on_item_cleaned_up_default,
+    on_drop_sound               = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+    on_land_sound               = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+    on_pick_up_sound            = ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND)
 ```
 
 As you can see from the parameters, only the first 5 are required, the rest are optional and are only exposed if you want to have greater control over the creation of the item and how it's handled.
