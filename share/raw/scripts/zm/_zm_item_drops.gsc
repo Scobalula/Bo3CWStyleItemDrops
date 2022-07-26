@@ -37,22 +37,22 @@ REGISTER_SYSTEM_EX("zm_item_drops", &__init__, &__main__, undefined)
 function __init__()
 {
     // Global Settings
-    DEFAULT(level.zm_item_drops_requires_player, 			ZM_ITEM_DROPS_REQUIRES_PLAYER);
-    DEFAULT(level.zm_item_drops_chance, 					ZM_ITEM_DROPS_CHANCE);
-    DEFAULT(level.zm_item_drops_min_round, 					ZM_ITEM_DROPS_MIN_ROUND);
-    DEFAULT(level.zm_item_drops_requires_valid_zone, 		ZM_ITEM_DROPS_REQUIRES_VALID_ZONE);
-    DEFAULT(level.zm_item_drops_requires_line_of_sight, 	ZM_ITEM_DROPS_REQUIRES_LINE_OF_SIGHT);
-    DEFAULT(level.zm_item_drops_requires_no_overlaps, 		ZM_ITEM_DROPS_REQUIRES_LINE_OF_SIGHT);
-    DEFAULT(level.zm_item_drops_max_items, 					ZM_ITEM_DROPS_MAX_ITEMS);
-    DEFAULT(level.zm_item_drops_max_items_per_round, 		ZM_ITEM_DROPS_MAX_ITEMS_PER_ROUND);
-    DEFAULT(level.zm_item_drops_kills_required_min, 		ZM_ITEM_DROPS_KILLS_REQUIRED_MIN);
-    DEFAULT(level.zm_item_drops_kills_required_max,			ZM_ITEM_DROPS_KILLS_REQUIRED_MAX);
-    DEFAULT(level.zm_item_drops_round_based_drop_rate, 		ZM_ITEM_DROPS_ROUND_BASED_DROP_RATE);
-    DEFAULT(level.zm_item_drops_range_squared, 				ZM_ITEM_DROPS_RANGE_SQUARED);
-    DEFAULT(level.zm_item_drops_drop_calc_min_radius, 		ZM_ITEM_DROPS_DROP_CALC_MIN_RADIUS);
-    DEFAULT(level.zm_item_drops_drop_calc_max_radius, 		ZM_ITEM_DROPS_DROP_CALC_MAX_RADIUS);
-    DEFAULT(level.zm_item_drops_drop_calc_half_height, 		ZM_ITEM_DROPS_DROP_CALC_HALF_HEIGHT);
-    DEFAULT(level.zm_item_drops_drop_calc_inner_spacing, 	ZM_ITEM_DROPS_DROP_CALC_INNER_SPACING);
+    DEFAULT(level.zm_item_drops_requires_player,            ZM_ITEM_DROPS_REQUIRES_PLAYER);
+    DEFAULT(level.zm_item_drops_chance,                     ZM_ITEM_DROPS_CHANCE);
+    DEFAULT(level.zm_item_drops_min_round,                  ZM_ITEM_DROPS_MIN_ROUND);
+    DEFAULT(level.zm_item_drops_requires_valid_zone,        ZM_ITEM_DROPS_REQUIRES_VALID_ZONE);
+    DEFAULT(level.zm_item_drops_requires_line_of_sight,     ZM_ITEM_DROPS_REQUIRES_LINE_OF_SIGHT);
+    DEFAULT(level.zm_item_drops_requires_no_overlaps,       ZM_ITEM_DROPS_REQUIRES_LINE_OF_SIGHT);
+    DEFAULT(level.zm_item_drops_max_items,                  ZM_ITEM_DROPS_MAX_ITEMS);
+    DEFAULT(level.zm_item_drops_max_items_per_round,        ZM_ITEM_DROPS_MAX_ITEMS_PER_ROUND);
+    DEFAULT(level.zm_item_drops_kills_required_min,         ZM_ITEM_DROPS_KILLS_REQUIRED_MIN);
+    DEFAULT(level.zm_item_drops_kills_required_max,         ZM_ITEM_DROPS_KILLS_REQUIRED_MAX);
+    DEFAULT(level.zm_item_drops_round_based_drop_rate,      ZM_ITEM_DROPS_ROUND_BASED_DROP_RATE);
+    DEFAULT(level.zm_item_drops_range_squared,              ZM_ITEM_DROPS_RANGE_SQUARED);
+    DEFAULT(level.zm_item_drops_drop_calc_min_radius,       ZM_ITEM_DROPS_DROP_CALC_MIN_RADIUS);
+    DEFAULT(level.zm_item_drops_drop_calc_max_radius,       ZM_ITEM_DROPS_DROP_CALC_MAX_RADIUS);
+    DEFAULT(level.zm_item_drops_drop_calc_half_height,      ZM_ITEM_DROPS_DROP_CALC_HALF_HEIGHT);
+    DEFAULT(level.zm_item_drops_drop_calc_inner_spacing,    ZM_ITEM_DROPS_DROP_CALC_INNER_SPACING);
     // Trackers
     level.zm_item_drops_dropped_this_round		 = 0;
     level.zm_item_drops_dropped					 = 0;
