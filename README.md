@@ -1,8 +1,10 @@
 # ⭐Bo3CWStyleItemDrops⭐
 
-This repo holds my attempt at scripting item drops featured in Call of Duty: Black Ops Cold War for Call of Duty: Black Ops III. This includes FX, Sounds, and Scripts with a full system for handling item drops from AI that die within the level. The script contains tons of variables to handle customization including function pointers that can be set to completely override functionality. ***This repo only contains a base script 
+This repo holds my attempt at scripting item drops featured in Call of Duty: Black Ops Cold War for Call of Duty: Black Ops III. This includes FX, Sounds, and Scripts with a full system for handling item drops from AI that die within the level. The script contains tons of variables to handle customization including function pointers that can be set to completely override functionality. 
 
 This script is fully scripted from the ground up without referencing CW's scripts and so may not 100% function like Cold War, if you are interested in porting Cold War's exact item drop functionality, then you can check out serious' [decompiled CW scripts](https://github.com/shiversoftdev/t9-src) and attempt to find the script that handles it.
+
+***NOTE: This repo only contains a base script for dropping items and doesn't actually provide item drops per say, but examples are provided below for ammo and money drop types and the script has built in functionalty for weapon drops***
 
 # Installing
 
@@ -41,19 +43,20 @@ scriptparsetree,scripts/zm/_zm_item_drops.csc
 Creating custom drops is very easy, the script exposes the following function to help with registering an item:
 
 ```gsc
-function register_item_drop(item_name,
-							item,
-							rarity,
-							chance,
-							on_item_picked_up_func,
-							pickup_type,
-							pickup_hint                = undefined,
-							on_spawn_item_model_func   = &on_spawn_item_model_default,
-							on_item_dropped_func       = &on_item_dropped_default,
-							on_item_cleaned_up_func    = &on_item_cleaned_up_default,
-							on_drop_sound              = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
-							on_land_sound			   = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
-							on_pick_up_sound		   = ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND)
+function register_item_drop(
+    item_name,
+    item,
+    rarity,
+    chance,
+    on_item_picked_up_func,
+    pickup_type,
+    pickup_hint                = undefined,
+    on_spawn_item_model_func   = &on_spawn_item_model_default,
+    on_item_dropped_func       = &on_item_dropped_default,
+    on_item_cleaned_up_func    = &on_item_cleaned_up_default,
+    on_drop_sound              = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+    on_land_sound			   = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+    on_pick_up_sound		   = ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND)
 ```
 
 As you can see from the parameters, only the first 5 are required, the rest are optional and are only exposed if you want to have greater control over the creation of the item and how it's handled.
@@ -95,8 +98,8 @@ function on_picked_up(drop_type, player)
 {
     // self = dropped item (entity)
     // Ensure we have a valid player
-	if(!zm_utility::is_player_valid(player))
-		return false;
+    if(!zm_utility::is_player_valid(player))
+        return false;
     // Do item stuff
     return true;
 }
@@ -145,11 +148,11 @@ function on_money_picked_up(drop_type, player)
 {
     // self = dropped item (entity)
     // Ensure we have a valid player
-	if(!zm_utility::is_player_valid(player))
-		return false;
+    if(!zm_utility::is_player_valid(player))
+        return false;
 
     player zm_utility::play_sound_on_ent("purchase");
-	player zm_score::player_add_points("bonus_points_powerup", RandomIntRange(5, 10) * 100);
+    player zm_score::player_add_points("bonus_points_powerup", RandomIntRange(5, 10) * 100);
 
     return true;
 }
@@ -178,12 +181,12 @@ function on_ammo_picked_up(drop_type, player)
 {
     // self = dropped item (entity)
     // Ensure we have a valid player
-	if(player zm_utility::in_revive_trigger())
-		return false;
-	if(IS_DRINKING(player.is_drinking))
-		return false;
-	if(!zm_utility::is_player_valid(player))
-		return false;
+    if(player zm_utility::in_revive_trigger())
+        return false;
+    if(IS_DRINKING(player.is_drinking))
+        return false;
+    if(!zm_utility::is_player_valid(player))
+        return false;
     if(player IsThrowingGrenade())
         return false;
     if(player IsMeleeing())
