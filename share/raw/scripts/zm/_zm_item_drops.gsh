@@ -88,11 +88,13 @@
 // Defines the legendary item drop fx name. (String)
 #define ZM_ITEM_DROPS_ULTRA_MTL_NAME                "mc/mtl_zombie_item_drops_red"
 // Defines the default sound to play on dropping. (String)
-#define ZM_ITEM_DROPS_DEFAULT_DROP_SOUND            "zm_item_drop_spawn_common"
+#define ZM_ITEM_DROPS_DEFAULT_DROP_SOUND            "zmb_spawn_powerup"
 // Defines the default sound to play on landing. (String)
-#define ZM_ITEM_DROPS_DEFAULT_LAND_SOUND            "zm_item_drop_land_common"
+#define ZM_ITEM_DROPS_DEFAULT_LAND_SOUND            undefined
+// Defines the default sound to play on loop. (String)
+#define ZM_ITEM_DROPS_DEFAULT_LOOP_SOUND            undefined
 // Defines the default sound to play on landing. (String)
-#define ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND         "zm_item_drop_land_common"
+#define ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND         undefined
 
 // -----------------------------------------
 // Advanced Settings

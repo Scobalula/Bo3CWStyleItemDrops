@@ -102,8 +102,9 @@ function register_item_drop(item_name,
                             on_spawn_item_model_func    = &on_spawn_item_model_default,
                             on_item_dropped_func        = &on_item_dropped_default,
                             on_item_cleaned_up_func     = &on_item_cleaned_up_default,
-                            on_drop_sound               = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+                            on_drop_sound               = ZM_ITEM_DROPS_DEFAULT_DROP_SOUND,
                             on_land_sound               = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+                            on_loop_sound               = ZM_ITEM_DROPS_DEFAULT_LOOP_SOUND,
                             on_pick_up_sound            = ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND)
 {
     if(!isdefined(item_name))
@@ -132,6 +133,7 @@ function register_item_drop(item_name,
     new_item.is_weapon                   = IsWeapon(item);
     new_item.on_drop_sound               = on_drop_sound;
     new_item.on_land_sound               = on_land_sound;
+    new_item.on_loop_sound               = on_loop_sound;
     new_item.on_pick_up_sound            = on_pick_up_sound;
 
     level.zm_item_drop_registered_items[item_name] = new_item;
@@ -152,6 +154,7 @@ function create_item_drop(item_name,
                           on_item_cleaned_up_func   = &on_item_cleaned_up_default,
                           on_drop_sound             = ZM_ITEM_DROPS_DEFAULT_DROP_SOUND,
                           on_land_sound             = ZM_ITEM_DROPS_DEFAULT_LAND_SOUND,
+                          on_loop_sound             = ZM_ITEM_DROPS_DEFAULT_LOOP_SOUND,
                           on_pick_up_sound          = ZM_ITEM_DROPS_DEFAULT_PICK_UP_SOUND)
 {
     if(!isdefined(item_name))
@@ -173,6 +176,7 @@ function create_item_drop(item_name,
     new_item.is_weapon                   = IsWeapon(item);
     new_item.on_drop_sound               = on_drop_sound;
     new_item.on_land_sound               = on_land_sound;
+    new_item.on_loop_sound               = on_loop_sound;
     new_item.on_pick_up_sound            = on_pick_up_sound;
 
     return new_item;
@@ -370,27 +374,12 @@ function on_weapon_picked_up(drop_type, player)
         if (!player zm_weapons::has_weapon_or_upgrade(weapon))
         {
             // TODO: Drop current weapon?
+            player zm_utility::play_sound_on_ent("purchase");
             player zm_weapons::weapon_give(weapon);
         }
         else
         {
-            player GiveMaxAmmo(weapon);
-
-            if(!zm_utility::is_offhand_weapon(weapon))
-            {
-                player SetWeaponAmmoClip(weapon, weapon.clipSize);
-                player SetWeaponAmmoStock(weapon, weapon.maxAmmo);
-
-                if(weapon.dualWieldWeapon != level.weaponNone)
-                {
-                    player SetWeaponAmmoClip(weapon.dualWieldWeapon, weapon.dualWieldWeapon.clipSize);
-                }
-
-                if(weapon.altWeapon != level.weaponNone)
-                {
-                    player SetWeaponAmmoClip(weapon.altWeapon, weapon.altWeapon.clipSize);
-                }
-            }
+            player zm_weapons::ammo_give(weapon);
         }
     }
 
@@ -591,6 +580,8 @@ function drop_item_by_type_to_location(drop_type, v_from, v_to)
 
     if(isdefined(ent.drop_type.on_drop_sound))
         ent PlaySound(ent.drop_type.on_drop_sound);
+    if(isdefined(ent.drop_type.on_loop_sound))
+        ent PlayLoopSound(ent.drop_type.on_loop_sound);
 
     v_dest = v_to + (0, 0, 8);
     n_time = ent zm_utility::fake_physicslaunch(v_dest, 200);
