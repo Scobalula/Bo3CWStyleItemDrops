@@ -18,19 +18,19 @@
 // Defines whether or not items can overlap on drop.  (True/False)
 #define ZM_ITEM_DROPS_REQUIRES_NO_OVERLAPS      true
 // Defines the min round for an item to drop.  (Integer)
-#define ZM_ITEM_DROPS_MIN_ROUND                 0
+#define ZM_ITEM_DROPS_MIN_ROUND                 5
 // Defines the global chance for an item to drop. (Integer)
-#define ZM_ITEM_DROPS_CHANCE                    100
+#define ZM_ITEM_DROPS_CHANCE                    25
 // The max number of items that can be dropped at once. (Integer)
-#define ZM_ITEM_DROPS_MAX_ITEMS                 8
+#define ZM_ITEM_DROPS_MAX_ITEMS                 4
 // The max number of items that can drop per round. (Integer)
-#define ZM_ITEM_DROPS_MAX_ITEMS_PER_ROUND       32
+#define ZM_ITEM_DROPS_MAX_ITEMS_PER_ROUND       12
 // The default time to live before an item deletes itself. (Integer)
 #define ZM_ITEM_DROPS_DEFAULT_TIME_TO_LIVE      30
 // The minimum number of kills required for another drop. (Integer)
-#define ZM_ITEM_DROPS_KILLS_REQUIRED_MIN        0
+#define ZM_ITEM_DROPS_KILLS_REQUIRED_MIN        5
 // The maximum number of kills required for another drop. (Integer)
-#define ZM_ITEM_DROPS_KILLS_REQUIRED_MAX        1
+#define ZM_ITEM_DROPS_KILLS_REQUIRED_MAX        10
 // Defines whether or not to increase drop rate past 20.  (True/False)
 #define ZM_ITEM_DROPS_ROUND_BASED_DROP_RATE    true
 // Defines the radius for triggers and touching items to pick them up. (Float)

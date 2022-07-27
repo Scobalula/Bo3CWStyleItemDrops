@@ -28,15 +28,8 @@ scriptparsetree,scripts/zm/_zm_item_drops.csc
 #using scripts\zm\_zm_item_drops;
 #insert scripts\zm\_zm_item_drops.gsh;
 ```
-5. Open your map/mod's szc file and add the following entry:
-```json
-{
-    "Type" : "ALIAS",
-    "Name" : "zm_item_drops",
-    "Filename" : "zm_item_drops.csv",
-    "Specs" : []
-},
-```
+
+Finally, compile your map/mod to see the changes, if all went well and you've added some items, there should be some dropping with the zombies!
 
 # Creating Custom Drops
 
