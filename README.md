@@ -1,4 +1,4 @@
-# ⭐Bo3CWStyleItemDrops⭐
+# ⭐ Bo3 CW Style Item Drops ⭐
 
 This repo holds my attempt at scripting item drops featured in Call of Duty: Black Ops Cold War for Call of Duty: Black Ops III. This includes FX, Sounds, and Scripts with a full system for handling item drops from AI that die within the level. The script contains tons of variables to handle customization including function pointers that can be set to completely override functionality. 
 

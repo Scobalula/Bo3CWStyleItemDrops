@@ -43,10 +43,10 @@ function __init__()
     // Clientfields
     clientfield::register("scriptmover", ZM_ITEM_DROPS_FX_CF_NAME, VERSION_SHIP, GetMinBitCountForNum(ZM_ITEM_DROPS_FX_VARIANTS), "int", &do_dropped_item_fx, !CF_HOST_ONLY, !CF_CALLBACK_ZERO_ON_NEW_ENT);
     // Duplicate Renders
-    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_common", 	99, "zm_item_drop_common", 		undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_COMMON_MTL_NAME, 		DR_CULL_NEVER);
-    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_uncommon", 	99, "zm_item_drop_uncommon", 	undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_RARE_MTL_NAME, 			DR_CULL_NEVER);
-    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_rare", 		99, "zm_item_drop_rare", 		undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_LEGENDARY_MTL_NAME, 	DR_CULL_NEVER);
-    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_legendary", 	99, "zm_item_drop_legendary", 	undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_ULTRA_MTL_NAME, 		DR_CULL_NEVER);
+    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_common",     99, "zm_item_drop_common",      undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_COMMON_MTL_NAME,        DR_CULL_NEVER);
+    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_uncommon",   99, "zm_item_drop_uncommon",    undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_RARE_MTL_NAME,          DR_CULL_NEVER);
+    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_rare",       99, "zm_item_drop_rare",        undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_LEGENDARY_MTL_NAME,     DR_CULL_NEVER);
+    duplicate_render::set_dr_filter_offscreen("dr_zm_item_drop_legendary",  99, "zm_item_drop_legendary",   undefined, DR_TYPE_OFFSCREEN, ZM_ITEM_DROPS_ULTRA_MTL_NAME,         DR_CULL_NEVER);
     // Callbacks
     callback::on_localplayer_spawned(&on_spawned);
 }
